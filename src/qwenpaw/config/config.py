@@ -1005,6 +1005,20 @@ class AgentsRunningConfig(BaseModel):
         ),
     )
 
+    chat_commands: list[str] = Field(
+        default_factory=lambda: [
+            "clear",
+            "compact",
+            "mission",
+            "skills",
+            "plan",
+        ],
+        description=(
+            "Shortcut menu commands shown in chat input /-menu. "
+            "Order reflects display order."
+        ),
+    )
+
 
 class AgentsLLMRoutingConfig(BaseModel):
     model_config = ConfigDict(extra="ignore")
