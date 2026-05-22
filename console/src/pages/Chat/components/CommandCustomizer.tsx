@@ -1,7 +1,10 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Modal, Checkbox, Button, Space, Typography, message } from "antd";
 import { useTranslation } from "react-i18next";
-import { chatCommandsApi, AvailableCommand } from "../../../api/modules/chatCommands";
+import {
+  chatCommandsApi,
+  AvailableCommand,
+} from "../../../api/modules/chatCommands";
 
 interface Props {
   visible: boolean;
@@ -12,17 +15,27 @@ interface Props {
 
 const CATEGORY_I18N_KEYS: Record<string, string> = {
   context: "chat.commands.category.context",
-  history:  "chat.commands.category.history",
-  model:    "chat.commands.category.model",
-  session:  "chat.commands.category.session",
-  control:  "chat.commands.category.control",
-  daemon:   "chat.commands.category.daemon",
+  history: "chat.commands.category.history",
+  model: "chat.commands.category.model",
+  session: "chat.commands.category.session",
+  control: "chat.commands.category.control",
+  daemon: "chat.commands.category.daemon",
 };
 
-const CATEGORY_ORDER = ["context", "history", "model", "session", "control", "daemon"];
+const CATEGORY_ORDER = [
+  "context",
+  "history",
+  "model",
+  "session",
+  "control",
+  "daemon",
+];
 
 export const CommandCustomizer: React.FC<Props> = ({
-  visible, onClose, selected, onChange,
+  visible,
+  onClose,
+  selected,
+  onChange,
 }) => {
   const { t } = useTranslation();
   const [available, setAvailable] = useState<AvailableCommand[]>([]);
@@ -32,7 +45,10 @@ export const CommandCustomizer: React.FC<Props> = ({
   useEffect(() => {
     if (visible) {
       setDraft([...selected]);
-      chatCommandsApi.getAvailable().then(setAvailable).catch(() => {});
+      chatCommandsApi
+        .getAvailable()
+        .then(setAvailable)
+        .catch(() => {});
     }
   }, [visible]);
 
@@ -68,13 +84,11 @@ export const CommandCustomizer: React.FC<Props> = ({
       arr.push(cmd);
       map.set(cmd.category, arr);
     }
-    return CATEGORY_ORDER
-      .filter((cat) => map.has(cat))
-      .map((cat) => ({
-        category: cat,
-        label: t(CATEGORY_I18N_KEYS[cat], cat),
-        commands: map.get(cat)!,
-      }));
+    return CATEGORY_ORDER.filter((cat) => map.has(cat)).map((cat) => ({
+      category: cat,
+      label: t(CATEGORY_I18N_KEYS[cat], cat),
+      commands: map.get(cat)!,
+    }));
   }, [available, t]);
 
   return (
@@ -94,15 +108,22 @@ export const CommandCustomizer: React.FC<Props> = ({
       }
     >
       <Typography.Paragraph type="secondary" style={{ marginBottom: 16 }}>
-        {t("chat.commands.customizeHint",
-           "勾选你希望在输入框 / 菜单中显示的魔法命令")}
+        {t(
+          "chat.commands.customizeHint",
+          "勾选你希望在输入框 / 菜单中显示的魔法命令",
+        )}
       </Typography.Paragraph>
       {grouped.map(({ category, label, commands }) => (
         <div key={category} style={{ marginBottom: 12 }}>
           <Typography.Text strong>{label}</Typography.Text>
-          <div style={{
-            display: "flex", flexWrap: "wrap", gap: "8px 16px", marginTop: 4,
-          }}>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "8px 16px",
+              marginTop: 4,
+            }}
+          >
             {commands.map((cmd) => (
               <Checkbox
                 key={cmd.command}

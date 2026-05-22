@@ -32,7 +32,10 @@ import { ApprovalCard } from "../../components/ApprovalCard/ApprovalCard";
 import { commandsApi } from "../../api/modules/commands";
 import { useApprovalContext } from "../../contexts/ApprovalContext";
 import { planApi } from "../../api/modules/plan";
-import { chatCommandsApi, AvailableCommand } from "../../api/modules/chatCommands";
+import {
+  chatCommandsApi,
+  AvailableCommand,
+} from "../../api/modules/chatCommands";
 import { CommandCustomizer } from "./components/CommandCustomizer";
 
 interface ApprovalMessageData {
@@ -619,10 +622,15 @@ export default function ChatPage() {
   >(new Map());
   const [planEnabled, setPlanEnabled] = useState(false);
   const [chatCommands, setChatCommands] = useState<string[]>([
-    "clear", "compact", "mission", "skills",
+    "clear",
+    "compact",
+    "mission",
+    "skills",
   ]);
   const [customizerVisible, setCustomizerVisible] = useState(false);
-  const [availableCommands, setAvailableCommands] = useState<AvailableCommand[]>([]);
+  const [availableCommands, setAvailableCommands] = useState<
+    AvailableCommand[]
+  >([]);
 
   useEffect(() => {
     let cancelled = false;
@@ -640,7 +648,9 @@ export default function ChatPage() {
       .catch(() => {});
     chatCommandsApi
       .getAvailable()
-      .then((cmds) => { if (!cancelled) setAvailableCommands(cmds); })
+      .then((cmds) => {
+        if (!cancelled) setAvailableCommands(cmds);
+      })
       .catch(() => {});
     return () => {
       cancelled = true;
@@ -1180,7 +1190,9 @@ export default function ChatPage() {
                 onTranscription={handleWhisperTranscription}
               />
             )}
-            <Tooltip title={t("chat.commands.customizeTitle", "Customize Commands")}>
+            <Tooltip
+              title={t("chat.commands.customizeTitle", "Customize Commands")}
+            >
               <IconButton
                 icon={<SettingOutlined />}
                 bordered={false}

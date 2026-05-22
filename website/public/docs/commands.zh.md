@@ -22,14 +22,14 @@
 
 > 💡 想要显示全部可用命令？勾上所有选项就行。觉得太吵？只留你真正需要的几个。
 
-| 分类 | 可选的快捷命令 |
-|------|---------------|
-| 上下文 | `/compact` `/new` `/clear` |
-| 历史 | `/history` `/message <n>` `/compact_str` `/summarize_status` `/dump_history` `/load_history` |
-| 模型 | `/model` |
-| 会话 | `/mission` `/plan` `/proactive` `/skills` |
-| 控制 | `/stop` |
-| 守护 | `/status` `/restart` `/reload-config` `/reload_config` `/version` `/logs` |
+| 分类   | 可选的快捷命令                                                                               |
+| ------ | -------------------------------------------------------------------------------------------- |
+| 上下文 | `/compact` `/new` `/clear`                                                                   |
+| 历史   | `/history` `/message <n>` `/compact_str` `/summarize_status` `/dump_history` `/load_history` |
+| 模型   | `/model`                                                                                     |
+| 会话   | `/mission` `/plan` `/proactive` `/skills`                                                    |
+| 控制   | `/stop`                                                                                      |
+| 守护   | `/status` `/restart` `/reload-config` `/reload_config` `/version` `/logs`                    |
 
 > ⚠️ `/approve` 和 `/deny` 仅在出现工具审批时动态显示，不在快捷菜单可选列表中。
 

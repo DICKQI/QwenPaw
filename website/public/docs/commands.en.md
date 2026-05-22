@@ -22,14 +22,14 @@ Changes take effect immediately and are persisted across sessions. By default, `
 
 > 💡 Want to see all available commands? Check them all. Prefer a minimal menu? Keep only the ones you actually use.
 
-| Category | Available shortcut commands |
-|----------|---------------------------|
-| Context | `/compact` `/new` `/clear` |
-| History | `/history` `/message <n>` `/compact_str` `/summarize_status` `/dump_history` `/load_history` |
-| Model | `/model` |
-| Session | `/mission` `/plan` `/proactive` `/skills` |
-| Control | `/stop` |
-| Daemon | `/status` `/restart` `/reload-config` `/reload_config` `/version` `/logs` |
+| Category | Available shortcut commands                                                                  |
+| -------- | -------------------------------------------------------------------------------------------- |
+| Context  | `/compact` `/new` `/clear`                                                                   |
+| History  | `/history` `/message <n>` `/compact_str` `/summarize_status` `/dump_history` `/load_history` |
+| Model    | `/model`                                                                                     |
+| Session  | `/mission` `/plan` `/proactive` `/skills`                                                    |
+| Control  | `/stop`                                                                                      |
+| Daemon   | `/status` `/restart` `/reload-config` `/reload_config` `/version` `/logs`                    |
 
 > ⚠️ `/approve` and `/deny` only appear dynamically during tool approval flows. They are not in the shortcut menu options.
 
