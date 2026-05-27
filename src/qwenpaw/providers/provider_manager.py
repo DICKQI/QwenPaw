@@ -95,8 +95,8 @@ MIMO_TOKENPLAN_MODELS: List[ModelInfo] = [
     ModelInfo(
         id="mimo-v2.5",
         name="MiMo V2.5",
-        supports_image=False,
-        supports_video=False,
+        supports_image=True,
+        supports_video=True,
         probe_source="documentation",
     ),
 ]

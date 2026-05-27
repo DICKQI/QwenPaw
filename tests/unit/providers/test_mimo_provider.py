@@ -42,8 +42,12 @@ def test_mimo_models_list() -> None:
 def test_mimo_models_attributes() -> None:
     """Verify MiMo Token Plan model attributes."""
     for model in MIMO_TOKENPLAN_MODELS:
-        assert model.supports_image is False
-        assert model.supports_video is False
+        if model.id == "mimo-v2.5":
+            assert model.supports_image is True
+            assert model.supports_video is True
+        else:
+            assert model.supports_image is False
+            assert model.supports_video is False
         assert model.probe_source == "documentation"
 
 
